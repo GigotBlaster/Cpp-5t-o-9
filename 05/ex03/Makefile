@@ -31,16 +31,13 @@ $(NAME)		: $(OBJS) $(INCS)
 			@$(CC) $(OBJS) $(MAIN_INC) -o $(NAME)
 			@echo "$(NAME_SHORT) compiled"
 
-clean		:
-ifeq ($(OBJS_DIR), ./)
-			@$(RM) $(OBJS)
-else
-			@$(RM) $(OBJS_DIR)
-endif
-			@$(RM) *_shrubbery
+clean:
+		@${RM} $(OBJ_DIR)
 
-fclean		: clean
-			@$(RM) $(NAME)
+fclean:		clean
+		@${RM} ${NAME}
+		@echo "Everything cleaned"
+
 
 re			: fclean all
 
