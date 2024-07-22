@@ -17,10 +17,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) :
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &shrubberyForm)
-// ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &shrubberyForm)
-// {
-// 	*this = shrubberyForm;
-// }
+{
+	*this = shrubberyForm;
+}
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {

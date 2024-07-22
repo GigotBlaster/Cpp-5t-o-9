@@ -29,7 +29,7 @@ all			: $(NAME)
 
 $(NAME)		: $(OBJS) $(INCS)
 			@$(CC) $(OBJS) $(MAIN_INC) -o $(NAME)
-			@echo "$(_OK) $(NAME_SHORT) compiled"
+			@echo "$(NAME_SHORT) compiled"
 
 clean		:
 ifeq ($(OBJS_DIR), ./)

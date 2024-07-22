@@ -31,7 +31,7 @@ all:	${NAME}
 
 $(NAME): ${OBJS} ${INC_DIR}
 		@${CC} ${CFLAGS} ${OBJS} -I ${INC_DIR} -o ${NAME}
-		@echo "$(GREEN)##### Bureaucratie compiling finished! #####$(DEFAULT)"
+		@echo "Bureaucratie compiling finished!"
 
 $(OBJ_DIR)/%.o: %.cpp ${INC_DIR} | $(OBJ_DIR)
 		@$(CC) $(CFLAGS) -c $< -o $@ -I ${INC_DIR}
@@ -44,7 +44,7 @@ clean:
 
 fclean:		clean
 		@${RM} ${NAME}
-		@echo "\n${GREEN}Everything cleaned${DEFAULT}"
+		@echo "Everything cleaned"
 
 re:			fclean
 		@$(MAKE) all -j
