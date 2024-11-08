@@ -1,8 +1,16 @@
-#include "Form.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/29 13:12:47 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/11/07 16:20:32 by npetitpi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/*
-**		CONSTRUCTORS AND DESTRUCTOR
-*/
+#include "Form.hpp"
 
 Form::Form(void) : _name("useless"), _gradeSign(150), _gradeExec(150), _signed(false)
 {
@@ -13,9 +21,9 @@ Form::Form(const std::string name, int gradeSign, int gradeExec) :
 	_name(name), _gradeSign(gradeSign), _gradeExec(gradeExec), _signed(false)
 {
 	if (_gradeSign < 1 || _gradeExec < 1)
-		throw GradeTooHigh();
+		throw GradeTooHighExeption();
 	if (_gradeSign > 150 || _gradeExec > 150)
-		throw GradeTooLow();
+		throw GradeTooLowExeption();
 }
 
 Form::Form(const Form &form) : _name(form._name), _gradeSign(form._gradeSign), _gradeExec(form._gradeExec)
@@ -28,9 +36,7 @@ Form::~Form()
 	return ;
 }
 
-/*
-**		OVERLOAD OPERATORS
-*/
+//overload
 
 Form	&Form::operator=(const Form &form)
 {
@@ -39,18 +45,16 @@ Form	&Form::operator=(const Form &form)
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &o, const Form &form)
+std::ostream	&operator<<(std::ostream &flux, const Form &form)
 {
-	o << "[" << form.getName() << "]" << std::endl;
-	o << "\t" << "signed : " << form.getSigned() << std::endl;
-	o << "\t" << "grade needed to sign : " << form.getGradeSign() << std::endl;
-	o << "\t" << "grade needed to execute : " << form.getGradeExec() << std::endl;
-	return (o);
+	flux << "[" << form.getName() << "]" << std::endl;
+	flux << "\t" << "signed : " << form.getSigned() << std::endl;
+	flux << "\t" << "grade needed to sign : " << form.getGradeSign() << std::endl;
+	flux << "\t" << "grade needed to execute : " << form.getGradeExec() << std::endl;
+	return (flux);
 };
 
-/*
-**		MEMBER FUNCTIONS
-*/
+//member function
 
 const std::string	Form::getName(void) const
 {
@@ -75,6 +79,6 @@ bool	Form::getSigned(void) const
 void	Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > _gradeSign)
-		throw GradeTooLow();
+		throw GradeTooLowExeption();
 	_signed = true;
 }

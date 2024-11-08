@@ -62,6 +62,6 @@ class AForm
 		};
 };
 
-std::ostream	&operator<<(std::ostream &o, const AForm &form);
+std::ostream	&operator<<(std::ostream &flux, const AForm &form);
 
 #endif

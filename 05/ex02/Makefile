@@ -1,3 +1,5 @@
+CC			= c++ -Wall -Wextra -Werror -std=c++98
+RM			= rm -rf
 NAME		=	Bureaucratie
 
 GREEN		=	\033[1;32m
@@ -21,12 +23,6 @@ SRCS		=	main.cpp					\
 
 OBJS		=	$(SRCS:%.cpp=${OBJ_DIR}/%.o)
 
-RM			=	rm -rf
-
-CC			=	c++
-
-CFLAGS		=	-Werror -Wall -Wextra -std=c++98 -g3
-
 all:	${NAME}
 
 $(NAME): ${OBJS} ${INC_DIR}
@@ -40,13 +36,12 @@ $(OBJ_DIR) :
 		@mkdir -p $@
 
 clean:
-		@${RM} $(OBJ_DIR)
+		@${RM} $(OBJS)
 
 fclean:		clean
 		@${RM} ${NAME}
 		@echo "Everything cleaned"
 
-re:			fclean
-		@$(MAKE) all -j
+re:			clean all
 
 .PHONY:		all clean fclean re

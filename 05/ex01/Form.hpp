@@ -1,11 +1,8 @@
 #ifndef FORM_HPP
 # define FORM_HPP
-# define RED "\x1B[31m"
 # define GREEN "\x1B[32m"
 # define YELLOW "\x1B[33m"
-# define ORANGE "\x1B[34m"
 # define PURPLE "\x1B[35m"
-# define BLUE "\x1B[36m"
 # define END "\033[0m"
 # include "Bureaucrat.hpp"
 
@@ -35,19 +32,19 @@ class Form
 		void				beSigned(const Bureaucrat &bureaucrat);
 
 		// exceptions
-		class GradeTooHigh : public std::exception
+		class GradeTooHighExeption : public std::exception
 		{
 			public:
 				virtual const char *what() const throw() { return ("grade is too high"); }
 		};
 
-		class GradeTooLow : public std::exception
+		class GradeTooLowExeption : public std::exception
 		{
 			public:
 				virtual const char *what() const throw() { return ("grade is too low"); }
 		};
 };
 
-std::ostream	&operator<<(std::ostream &o, const Form &form);
+std::ostream	&operator<<(std::ostream &flux, const Form &form);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lle-briq <lle-briq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 08:51:31 by lle-briq          #+#    #+#             */
-/*   Updated: 2022/03/10 15:29:40 by lle-briq         ###   ########.fr       */
+/*   Created: 2024/09/06 12:32:05 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/11/07 16:57:58 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) :
 }
 
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &shrubberyForm)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &shrubberyForm) : AForm(shrubberyForm)
 {
 	*this = shrubberyForm;
 }
@@ -39,9 +39,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	return ;
 }
 
-/*
-**		OVERLOAD OPERATORS
-*/
+//overload
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &shrubberyForm)
 {
@@ -49,9 +47,7 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-/*
-**		MEMBER FUNCTIONS
-*/
+//member function
 
 void	ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat) const
 {

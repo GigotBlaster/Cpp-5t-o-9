@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 12:31:01 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/09/06 12:31:01 by npetitpi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -19,11 +31,11 @@ static void     printTitle(std::string title)
                 toPrint[size - 3] = ' ';
                 n = toPrint.size();
         }
-        std::cout << std::endl << std::setfill('=') << std::setw(size) << "" << std::endl;
+        std::cout << std::endl << std::setfill('~') << std::setw(size) << "" << std::endl;
         std::cout << std::setw(size / 2) << toPrint.substr(0, n / 2);
         std::cout << toPrint.substr(n / 2, n - n / 2);
-        std::cout << std::setfill('=') << std::setw(size - size / 2 - n + n / 2) << "" << std::endl;
-        std::cout << std::setfill('=') << std::setw(size) << "" << std::endl;
+        std::cout << std::setfill('~') << std::setw(size - size / 2 - n + n / 2) << "" << std::endl;
+        std::cout << std::setfill('~') << std::setw(size) << "" << std::endl;
 }
 
 
@@ -34,7 +46,7 @@ int	main(void)
 	printTitle("Shrubbery Creation");
 	AForm		*shrub = new ShrubberyCreationForm("home");
 	Bureaucrat	corr("Correcteur", 1);
-	Bureaucrat	me("Lucie", 140);
+	Bureaucrat	me("Shanley", 140);
 
 	corr.executeForm(*shrub);
 	corr.signForm(*shrub);
@@ -47,7 +59,7 @@ int	main(void)
 
 	printTitle("Robotomy Request");
 	AForm		*robotomy = new RobotomyRequestForm("Correcteur");
-	Bureaucrat	me2("Lucie", 1);
+	Bureaucrat	me2("Shanley", 1);
 
 	me2.executeForm(*robotomy);
 	me2.signForm(*robotomy);
@@ -60,7 +72,7 @@ int	main(void)
 	
 	printTitle("Presidential Pardon");
 	AForm		*presidential = new PresidentialPardonForm("Correcteur");
-	Bureaucrat	me3("Lucie", 6);
+	Bureaucrat	me3("Shanley", 6);
 
 	me3.executeForm(*presidential);
 	me3.signForm(*presidential);

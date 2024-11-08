@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 12:31:51 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/11/07 16:57:19 by npetitpi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PresidentialPardonForm.hpp"
 
 /*
@@ -16,7 +28,7 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string &target) :
 	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &presidential)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &presidential) : AForm(presidential)
 {
 	*this = presidential;
 }
@@ -26,9 +38,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 	return ;
 }
 
-/*
-**		OVERLOAD OPERATORS
-*/
+//overload
 
 PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &presidential)
 {
@@ -36,9 +46,7 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPard
 	return (*this);
 }
 
-/*
-**		MEMBER FUNCTIONS
-*/
+//member function
 
 void	PresidentialPardonForm::execute(const Bureaucrat &bureaucrat) const
 {

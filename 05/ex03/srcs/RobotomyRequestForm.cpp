@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 12:31:54 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/11/07 16:58:17 by npetitpi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RobotomyRequestForm.hpp"
 
 /*
@@ -16,7 +28,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string target) :
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &robotomy)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &robotomy) : AForm(robotomy)
 {
 	*this = robotomy;
 }
@@ -26,26 +38,22 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	return ;
 }
 
-/*
-**		OVERLOAD OPERATORS
-*/
+//overload
 
-RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &robotomy)
+RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &robotomy) 
 {
 	(void)robotomy;
 	return (*this);
 }
 
-/*
-**		MEMBER FUNCTIONS
-*/
+//member function
 
 void	RobotomyRequestForm::execute(const Bureaucrat &bureaucrat) const
 {
 	int	robotomized;
 
 	this->AForm::executeCheck(bureaucrat);
-	std::cout << "*rizZzzz BzzZz rZz* ";
+	std::cout << "*Bzzzzt cling tic * ";
 	robotomized = rand() % 2;
 	if (robotomized)
 		std::cout << PURPLE << _target << END << " was robotomized" << std::endl;

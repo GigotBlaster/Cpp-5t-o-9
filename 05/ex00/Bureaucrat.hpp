@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/27 16:16:35 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/11/08 12:23:31 by npetitpi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 # include <iostream>
@@ -10,11 +22,11 @@ class Bureaucrat
 		
 	public:
 		Bureaucrat(void);
-		Bureaucrat(const std::string &name, int grade);
-		Bureaucrat(const Bureaucrat &bureaucrat);
+		Bureaucrat(std::string const &name, int grade);
+		Bureaucrat(Bureaucrat const &bureaucrat);
 		virtual ~Bureaucrat();
 
-		Bureaucrat	&operator=(const Bureaucrat &bureaucrat);
+		Bureaucrat&operator=(Bureaucrat const &bureaucrat);
 
 		// member functions
 		const std::string	getName(void) const;
@@ -22,8 +34,8 @@ class Bureaucrat
 		void				upGrade(void);
 		void				downGrade(void);
 
-		// exceptions
-		class GradeTooHigh : public std:: exception
+		// redefining exceptions with what()
+		class GradeTooHighExeption : public std:: exception
 		{
 			public:
 				virtual const char *what() const throw()
@@ -32,7 +44,7 @@ class Bureaucrat
 				}
 		};
 
-		class GradeTooLow : public std::exception
+		class GradeTooLowExeption: public std::exception
 		{
 			public:
 				virtual const char *what() const throw()
@@ -43,6 +55,6 @@ class Bureaucrat
 
 };
 
-std::ostream	&operator<<(std::ostream &o, const Bureaucrat &bureaucrat);
+std::ostream	&operator<<(std::ostream &flux, const Bureaucrat &bureaucrat);
 
 #endif

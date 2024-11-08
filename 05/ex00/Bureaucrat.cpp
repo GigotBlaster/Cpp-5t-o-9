@@ -1,36 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/27 16:15:34 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/11/08 12:24:38 by npetitpi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
-		//CONSTRUCTORS AND DESTRUCTOR
-
 Bureaucrat::Bureaucrat(void) : _name("unknown"), _grade(150)
-{
-	return ;
-}
+{}
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
+Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name)
 {
 	if (grade < 1)
-		throw GradeTooHigh();
+		throw GradeTooHighExeption();
 	if (grade > 150)
-		throw GradeTooLow();
+		throw GradeTooLowExeption();
 	_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat)
+Bureaucrat::Bureaucrat(Bureaucrat const &bureaucrat)
 {
 	*this = bureaucrat;
 }
 
 Bureaucrat::~Bureaucrat()
-{
-	return ;
-}
+{}
 
-/*
-**		OVERLOAD OPERATORS
-*/
-
-Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &bureaucrat)
+Bureaucrat&Bureaucrat::operator=(Bureaucrat const &bureaucrat)
 {
 	if (this != &bureaucrat)
 	{
@@ -38,16 +40,6 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 	}
 	return (*this);
 }
-
-std::ostream	&operator<<(std::ostream &o, const Bureaucrat &bureaucrat)
-{
-	o << bureaucrat.getName() << ", grade " << bureaucrat.getGrade();
-	return (o);
-}
-
-/*
-**		MEMBER FUNCTIONS
-*/
 
 const std::string	Bureaucrat::getName(void) const
 {
@@ -62,13 +54,19 @@ int	Bureaucrat::getGrade(void) const
 void	Bureaucrat::upGrade(void)
 {
 	if (_grade <= 1)
-		throw GradeTooHigh();
+		throw GradeTooHighExeption();
 	_grade--;
 }
 
 void	Bureaucrat::downGrade(void)
 {
 	if (_grade >= 150)
-		throw GradeTooLow();
+		throw GradeTooLowExeption();
 	_grade++;
+}
+
+std::ostream	&operator<<(std::ostream &flux, Bureaucrat const &bureaucrat)
+{
+	flux << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+	return (flux);
 }

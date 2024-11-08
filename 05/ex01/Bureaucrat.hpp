@@ -1,11 +1,8 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
-# define RED "\x1B[31m"
 # define GREEN "\x1B[32m"
 # define YELLOW "\x1B[33m"
-# define ORANGE "\x1B[34m"
 # define PURPLE "\x1B[35m"
-# define BLUE "\x1B[36m"
 # define END "\033[0m"
 # include <iostream>
 # include "Form.hpp"
@@ -26,15 +23,15 @@ class Bureaucrat
 
 		Bureaucrat	&operator=(const Bureaucrat &bureaucrat);
 
-		// member functions
+		//member functions
 		const std::string	getName(void) const;
 		int					getGrade(void) const;
 		void				upGrade(void);
 		void				downGrade(void);
 		void				signForm(Form &form) const;
 
-		// exceptions
-		class GradeTooHigh : public std::exception
+		//exceptions
+		class GradeTooHighExeption : public std::exception
 		{
 			public:
 				virtual const char *what() const throw() 
@@ -43,7 +40,7 @@ class Bureaucrat
 				}
 		};
 
-		class GradeTooLow : public std::exception
+		class GradeTooLowExeption : public std::exception
 		{
 			public:
 				virtual const char *what() const throw()
@@ -54,6 +51,6 @@ class Bureaucrat
 
 };
 
-std::ostream	&operator<<(std::ostream &o, const Bureaucrat &bureaucrat);
+std::ostream	&operator<<(std::ostream &flux, const Bureaucrat &bureaucrat);
 
 #endif

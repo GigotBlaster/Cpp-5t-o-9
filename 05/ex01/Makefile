@@ -32,7 +32,7 @@ $(NAME)		: $(OBJS) $(INCS)
 			@echo "$(_OK) $(NAME_SHORT) compiled"
 
 clean:
-		@${RM} $(OBJ_DIR)
+		@${RM} $(OBJS)
 
 fclean:		clean
 		@${RM} ${NAME}

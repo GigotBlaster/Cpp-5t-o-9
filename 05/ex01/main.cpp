@@ -4,14 +4,15 @@
 int	main(void)
 {
 	Form 		f("formular", 10, 4);
-	Bureaucrat	bob("Bob", 11);
+	Bureaucrat	manu("Manu", 11);
 
 	std::cout << f << std::endl;
-	std::cout << bob << std::endl;
+	std::cout << manu << std::endl;
 	
-	bob.signForm(f);
-	bob.upGrade();
-	bob.signForm(f);
+	manu.signForm(f);
+	manu.upGrade();
+	manu.signForm(f);
+	manu.signForm(f);
 
 	std::cout << std::endl << f << std::endl;
 

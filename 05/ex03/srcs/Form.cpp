@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 12:31:39 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/11/07 16:22:34 by npetitpi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
 
 /*
@@ -28,9 +40,7 @@ Form::~Form()
 	return ;
 }
 
-/*
-**		OVERLOAD OPERATORS
-*/
+//overload
 
 Form	&Form::operator=(const Form &form)
 {
@@ -39,18 +49,16 @@ Form	&Form::operator=(const Form &form)
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &o, const Form &form)
+std::ostream	&operator<<(std::ostream &flux, const Form &form)
 {
-	o << "[" << form.getName() << "]" << std::endl;
-	o << "\t" << "signed : " << form.getSigned() << std::endl;
-	o << "\t" << "grade needed to sign : " << form.getGradeSign() << std::endl;
-	o << "\t" << "grade needed to execute : " << form.getGradeExec() << std::endl;
-	return (o);
+	flux << "[" << form.getName() << "]" << std::endl;
+	flux << "\t" << "signed : " << form.getSigned() << std::endl;
+	flux << "\t" << "grade needed to sign : " << form.getGradeSign() << std::endl;
+	flux << "\t" << "grade needed to execute : " << form.getGradeExec() << std::endl;
+	return (flux);
 };
 
-/*
-**		MEMBER FUNCTIONS
-*/
+//member function
 
 const std::string	Form::getName(void) const
 {

@@ -1,8 +1,16 @@
-#include "Bureaucrat.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/29 13:12:04 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/11/07 16:21:01 by npetitpi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/*
-**		CONSTRUCTORS AND DESTRUCTOR
-*/
+#include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("unknown"), _grade(150)
 {
@@ -12,9 +20,9 @@ Bureaucrat::Bureaucrat(void) : _name("unknown"), _grade(150)
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
 {
 	if (grade < 1)
-		throw GradeTooHigh();
+		throw GradeTooHighExeption();
 	if (grade > 150)
-		throw GradeTooLow();
+		throw GradeTooLowExeption();
 	_grade = grade;
 }
 
@@ -28,9 +36,7 @@ Bureaucrat::~Bureaucrat()
 	return ;
 }
 
-/*
-**		OVERLOAD OPERATORS
-*/
+//overload
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 {
@@ -41,15 +47,13 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &o, const Bureaucrat &bureaucrat)
+std::ostream	&operator<<(std::ostream &flux, const Bureaucrat &bureaucrat)
 {
-	o << YELLOW << bureaucrat.getName() << END << ", grade " << bureaucrat.getGrade();
-	return (o);
+	flux << YELLOW << bureaucrat.getName() << END << ", grade " << bureaucrat.getGrade();
+	return (flux);
 }
 
-/*
-**		MEMBER FUNCTIONS
-*/
+//member function
 
 const std::string	Bureaucrat::getName(void) const
 {
@@ -64,14 +68,14 @@ int	Bureaucrat::getGrade(void) const
 void	Bureaucrat::upGrade(void)
 {
 	if (_grade <= 1)
-		throw GradeTooHigh();
+		throw GradeTooHighExeption();
 	_grade--;
 }
 
 void	Bureaucrat::downGrade(void)
 {
 	if (_grade >= 150)
-		throw GradeTooLow();
+		throw GradeTooLowExeption();
 	_grade++;
 }
 
@@ -84,6 +88,6 @@ void	Bureaucrat::signForm(Form &form) const
 	}
 	catch(const std::exception &e)
 	{
-		std::cout << YELLOW << _name << END << " couldn't sign " << GREEN << form.getName() << END <<  " because " << BLUE << e.what() << END << std::endl;
+		std::cout << YELLOW << _name << END << " couldn't sign " << GREEN << form.getName() << END <<  " because " << PURPLE << e.what() << END << std::endl;
 	}
 }

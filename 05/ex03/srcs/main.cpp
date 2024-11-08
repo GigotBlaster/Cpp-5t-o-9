@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 12:31:47 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/09/13 10:52:25 by npetitpi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "Intern.hpp"
 #include <iomanip>
@@ -17,11 +29,11 @@ static void     printTitle(std::string title)
                 toPrint[size - 3] = ' ';
                 n = toPrint.size();
         }
-        std::cout << std::endl << std::setfill('=') << std::setw(size) << "" << std::endl;
+        std::cout << std::endl << std::setfill('~') << std::setw(size) << "" << std::endl;
         std::cout << std::setw(size / 2) << toPrint.substr(0, n / 2);
         std::cout << toPrint.substr(n / 2, n - n / 2);
-        std::cout << std::setfill('=') << std::setw(size - size / 2 - n + n / 2) << "" << std::endl;
-        std::cout << std::setfill('=') << std::setw(size) << "" << std::endl;
+        std::cout << std::setfill('~') << std::setw(size - size / 2 - n + n / 2) << "" << std::endl;
+        std::cout << std::setfill('~') << std::setw(size) << "" << std::endl;
 }
 
 

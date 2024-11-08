@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 12:30:55 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/11/07 16:21:42 by npetitpi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 /*
@@ -28,9 +40,7 @@ Bureaucrat::~Bureaucrat()
 	return ;
 }
 
-/*
-**		OVERLOAD OPERATORS
-*/
+//overload
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 {
@@ -41,15 +51,13 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &o, const Bureaucrat &bureaucrat)
+std::ostream	&operator<<(std::ostream &flux, const Bureaucrat &bureaucrat)
 {
-	o << bureaucrat.getName() << ", grade " << bureaucrat.getGrade();
-	return (o);
+	flux << bureaucrat.getName() << ", grade " << bureaucrat.getGrade();
+	return (flux);
 }
 
-/*
-**		MEMBER FUNCTIONS
-*/
+//member function
 
 const std::string	Bureaucrat::getName(void) const
 {
@@ -84,7 +92,7 @@ void	Bureaucrat::signForm(AForm &form) const
 	}
 	catch(const std::exception &e)
 	{
-		std::cout << YELLOW << _name << END << " cannot sign " << GREEN << form.getName() << END <<  " because " << BLUE << e.what() << END << std::endl;
+		std::cout << YELLOW << _name << END << " cannot sign " << GREEN << form.getName() << END <<  " because " << PURPLE << e.what() << END << std::endl;
 	}
 }
 
@@ -97,6 +105,6 @@ void	Bureaucrat::executeForm(const AForm &form) const
 	}
 	catch(const std::exception &e)
 	{
-		std::cout << YELLOW << _name << END << " cannot executes " << GREEN << form.getName() << END <<  " because " << BLUE << e.what() << END << std::endl;
+		std::cout << YELLOW << _name << END << " cannot executes " << GREEN << form.getName() << END <<  " because " << PURPLE << e.what() << END << std::endl;
 	}
 }

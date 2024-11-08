@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 12:31:44 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/09/13 16:14:08 by npetitpi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Intern.hpp"
 
 /*
@@ -19,9 +31,7 @@ Intern::~Intern()
 	return ;
 }
 
-/*
-**		OVERLOAD OPERATORS
-*/
+//overload
 
 Intern	&Intern::operator=(const Intern &intern)
 {
@@ -29,9 +39,7 @@ Intern	&Intern::operator=(const Intern &intern)
 	return (*this);
 }
 
-/*
-**		MEMBER FUNCTIONS
-*/
+//member function
 
 static const std::string	lowerStr(const std::string str)
 {

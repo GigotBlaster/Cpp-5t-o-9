@@ -29,10 +29,10 @@ all			: $(NAME)
 
 $(NAME)		: $(OBJS) $(INCS)
 			@$(CC) $(OBJS) $(MAIN_INC) -o $(NAME)
-			@echo "$(_OK) $(NAME_SHORT) compiled"
+			@echo "$(_OK) $(NAME_SHORT) compiled"             
 
 clean:
-		@${RM} $(OBJ_DIR)
+		@${RM} $(OBJS)
 
 fclean:		clean
 		@${RM} ${NAME}
